@@ -1,17 +1,28 @@
 package bean;
 
 import constraint.Login;
+import org.hibernate.validator.constraints.Email;
 
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Pattern;
 import java.util.ArrayList;
 
 public class Person {
 
+    @NotNull
+    @Email(message = "email incorrect format")
     private String email;
+
+    @Pattern(regexp="[a-zA-Z]*", message="firstName syntax error")
     private String firstName;
+
+    @Pattern(regexp="[a-zA-Z]{2,12}",  message="lastName syntax error")
     private String lastName;
+
+    @Login
     private String login;
     private boolean isStudent;
-    @Login
+
 
     private ArrayList<Person> teachers;
     private ArrayList<Person> students;
@@ -21,19 +32,6 @@ public class Person {
     private Person lastModifier;
 
     public Person(){}
-
-    public Person(String email,
-                  String firstName,
-                  String lastName,
-                  String login,
-                  boolean isStudent) {
-        this.email = email;
-        this.firstName = firstName;
-        this.lastName = lastName;
-        this.login = login;
-        this.isStudent = isStudent;
-    }
-
 
     public String getEmail() {
         return email;
