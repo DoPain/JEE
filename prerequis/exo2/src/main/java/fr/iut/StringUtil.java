@@ -7,7 +7,13 @@ public class StringUtil {
 
     public static String prettyCurrencyPrint
             (final double amount, final Locale locale) {
-        return String.valueOf(NumberFormat.getCurrencyInstance(locale).format(amount));
+        String res;
+        if(locale !=null){
+            res = String.valueOf(NumberFormat.getCurrencyInstance(locale).format(amount));
+        }else{
+            res = null;
+        }
+        return res;
     }
 }
 
