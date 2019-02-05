@@ -1,14 +1,14 @@
 package fr.iut.Club;
 
 import fr.iut.Ball.Ball;
+
 import java.awt.geom.Point2D;
 
-public class Putter implements Club {
-
+public class PutterExperimental implements Club {
     /**
      * inner constant used to compute new position after shoot
      */
-    private final static int DISTANCE_MAX = 10;
+    private final static int DISTANCE_MAX = 50;
 
     public void shoot(final double force, final double direction, final Ball ball) {
         double x = ball.getPosition().getX();

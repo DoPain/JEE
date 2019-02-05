@@ -1,7 +1,6 @@
 package fr.iut.Caddy;
 
 import fr.iut.Club.Club;
-import fr.iut.Club.Wood;
 import fr.iut.Enum.Conditions;
 import com.google.inject.Inject;
 import com.google.inject.name.Named;
