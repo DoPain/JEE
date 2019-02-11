@@ -67,4 +67,10 @@ public class ControlRoom {
         unitOfWork.end();
     }
 
+    public void removeRoom(final String name){
+        unitOfWork.begin();
+        roomDao.removeRoom(name);
+        unitOfWork.end();
+    }
+
 }

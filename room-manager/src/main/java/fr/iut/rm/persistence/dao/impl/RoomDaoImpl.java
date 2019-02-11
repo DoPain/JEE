@@ -75,4 +75,17 @@ public class RoomDaoImpl implements RoomDao {
         return null;
     }
 
+    @Override
+    @Transactional
+    public void removeRoom(final String name){
+        Room r = findByName(name);
+        if(r!=null){
+            this.em.get().remove(r);
+            this.em.get().flush();
+            System.out.println("La salle" + r.getName() + " " + "a été supprimée");
+        }else{
+            System.out.println("La salle précisée n'existe pas");
+        }
+    }
+
 }

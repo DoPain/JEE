@@ -34,6 +34,11 @@ public final class App {
     private static final String LIST = "l";
 
     /**
+     * remove room
+     */
+    private static final String DELETE = "r";
+
+    /**
      * standard logger
      */
     private static final Logger logger = LoggerFactory.getLogger(App.class);
@@ -52,6 +57,7 @@ public final class App {
         // build options command line options
         options.addOption(OptionBuilder.withDescription("List all rooms").create(LIST));
         options.addOption(OptionBuilder.withValueSeparator(',').withArgName("name,description").hasArgs(2).withDescription("Create new room and add description").create(CREATE));
+        options.addOption(OptionBuilder.withArgName("name").hasArg().withDescription("Delete room").create(DELETE));
         options.addOption(OptionBuilder.withDescription("Display help message").create(HELP));
         options.addOption(OptionBuilder.withDescription("Quit").create(QUIT));
     }
@@ -85,7 +91,13 @@ public final class App {
                     if (name != null && !name.isEmpty()) {
                         cr.createRoom(name,desc);
                     }
+                } else if (cmd.hasOption(DELETE)){
+                    String name = cmd.getOptionValue(DELETE);
+                    if (name != null && !name.isEmpty()){
+                        cr.removeRoom(name);
+                    }
                 }
+
 
             } catch (ParseException e) {
                 e.printStackTrace();
