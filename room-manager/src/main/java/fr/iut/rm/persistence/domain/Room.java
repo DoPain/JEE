@@ -21,6 +21,12 @@ public class Room {
     @Column(nullable = false, unique = true)
     private String name;
 
+
+    /**
+     * Description de la room
+     */
+    @Column(length = 10)
+    private String description;
     /**
      * Default constructor (do nothing)
      */
@@ -64,4 +70,11 @@ public class Room {
         this.name = name;
     }
 
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
 }
